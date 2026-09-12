@@ -1,138 +1,162 @@
 # ⚙️ Stepper Motor Control System
 
 <p align="center">
-  <img src="https://img.shields.io/badge/Arduino-UNO-00979D?style=for-the-badge&logo=arduino&logoColor=white" alt="Arduino UNO">
-  <img src="https://img.shields.io/badge/Stepper-Motor-orange?style=for-the-badge" alt="Stepper Motor">
-  <img src="https://img.shields.io/badge/C%2B%2B-Arduino-blue?style=for-the-badge&logo=cplusplus&logoColor=white" alt="C++">
-  <img src="https://img.shields.io/badge/Embedded-System-green?style=for-the-badge" alt="Embedded System">
+  <img src="https://img.shields.io/badge/Arduino-UNO-00979D?style=for-the-badge&logo=arduino&logoColor=white">
+  <img src="https://img.shields.io/badge/Stepper%20Motor-Control-orange?style=for-the-badge">
+  <img src="https://img.shields.io/badge/C%2B%2B-Arduino-blue?style=for-the-badge&logo=cplusplus&logoColor=white">
+  <img src="https://img.shields.io/badge/Embedded-System-green?style=for-the-badge">
 </p>
 
 <p align="center">
-  <b>Arduino UNO based Stepper Motor Control Project</b><br>
-  پروژه کنترل موتور پله‌ای با استفاده از Arduino UNO
+  <strong>Arduino UNO based Stepper Motor Control System</strong>
+  <br>
+  سیستم کنترل موتور پله‌ای مبتنی بر Arduino UNO
+</p>
+
+<p align="center">
+  <a href="#-english">
+    <img src="https://img.shields.io/badge/🇬🇧%20English-Click%20Here-blue?style=for-the-badge">
+  </a>
+  &nbsp;
+  <a href="#-فارسی">
+    <img src="https://img.shields.io/badge/🇮🇷%20فارسی-کلیک%20کنید-red?style=for-the-badge">
+  </a>
 </p>
 
 ---
 
-## 🎬 Project Demo | ویدئوی اجرای پروژه
+## 🎬 Project Demo
 
 <p align="center">
   <a href="./demo.gif">
-    <img src="./Panel%20-%20telegram/robot_banner.jpg" width="750" alt="Stepper Motor Project - Click to watch the demo">
+    <img src="./Panel%20-%20telegram/robot_banner.jpg" width="750" alt="Stepper Motor Control System Demo">
   </a>
 </p>
 
 <p align="center">
-  👆 <b>Click the image to watch the project demo</b><br>
-  برای مشاهده ویدئوی اجرای پروژه روی تصویر کلیک کنید
+  <strong>👆 Click the image to watch the project demo</strong>
+  <br>
+  برای مشاهده اجرای پروژه روی تصویر کلیک کنید
 </p>
 
 ---
 
 # 🇬🇧 English
 
-## 📌 About The Project
+<a name="-english"></a>
 
-This project is an **Arduino UNO based Stepper Motor control system** designed to demonstrate how a stepper motor can be controlled accurately using a microcontroller.
+## 📌 About
 
-Unlike a conventional DC motor, a stepper motor rotates in a series of discrete steps. By controlling the number and timing of these steps, the Arduino can control the motor's movement, direction, and approximate position.
+**Stepper Motor Control System** is an Arduino UNO based project designed to demonstrate accurate and controlled movement of a stepper motor.
 
-The project provides a simple foundation for learning **embedded systems, digital control signals, motor drivers, and motion control**.
+The Arduino generates control signals that are sent to a motor driver. The driver provides the required electrical power to the motor and controls its movement.
 
-Stepper motors are commonly used in:
+The project demonstrates fundamental concepts of:
 
+* ⚙️ Stepper motor control
+* 🔄 Direction control
+* 🎯 Step-based positioning
+* 🔌 Motor drivers
+* 💻 Arduino / C++
+* 🧠 Embedded systems
 * 🤖 Robotics
-* 🏭 Industrial automation
-* 🖨️ 3D printers
-* ⚙️ CNC machines
-* 📷 Camera systems
-* 🦾 Robotic arms
-* 🔧 Positioning systems
-* 🚗 Automated mechanisms
+* 🏭 Automation
+
+It can also serve as a starting point for more advanced motion-control and robotics projects.
 
 ---
 
-## ⚙️ How Does It Work?
+## ✨ Features
 
-The Arduino UNO acts as the main controller.
+| Feature                  | Description                                  |
+| ------------------------ | -------------------------------------------- |
+| ⚙️ Stepper Control       | Control stepper motor movement               |
+| 🔄 Direction Control     | Change the motor rotation direction          |
+| 🎯 Step-Based Movement   | Move the motor by a specific number of steps |
+| 📐 Controlled Rotation   | Calculate approximate angular movement       |
+| 🔌 Arduino Interface     | Arduino UNO as the main controller           |
+| 🧠 Embedded Architecture | Simple hardware/software interaction         |
+| 🛠️ Extensible           | Easy to modify and expand                    |
+| 🎥 Demo                  | Project demonstration included               |
+| 📱 Telegram Files        | Additional Telegram panel files included     |
 
-It generates control signals that are sent to a suitable motor driver. The driver then provides the required electrical current to the stepper motor.
+---
 
-The general architecture is:
+## ⚙️ How It Works
 
-```text
-                 Arduino UNO
-                      │
-                      │ Control Signals
-                      ▼
-               ┌─────────────┐
-               │ Motor Driver│
-               └──────┬──────┘
-                      │
-                      │ Motor Power
-                      ▼
-               ┌─────────────┐
-               │   Stepper   │
-               │    Motor    │
-               └─────────────┘
-                      │
-                      ▼
-                  Rotation
-```
-
-The Arduino controls the motor by generating a sequence of pulses.
-
-In a typical STEP/DIR system:
+The basic architecture of the system is:
 
 ```text
-STEP → Controls movement
-DIR  → Controls direction
-ENA  → Enables/disables the driver
-GND  → Common ground
+                  ┌──────────────────┐
+                  │    Arduino UNO   │
+                  │   Main Controller│
+                  └────────┬─────────┘
+                           │
+                    Control Signals
+                           │
+                           ▼
+                  ┌──────────────────┐
+                  │   Motor Driver   │
+                  └────────┬─────────┘
+                           │
+                      Motor Power
+                           │
+                           ▼
+                  ┌──────────────────┐
+                  │  Stepper Motor   │
+                  └────────┬─────────┘
+                           │
+                           ▼
+                       Rotation
 ```
 
-Each valid STEP pulse causes the motor to move by one step or microstep, depending on the motor driver configuration.
-
-Therefore:
+For a typical **STEP / DIR** driver:
 
 ```text
-More STEP pulses  →  More rotation
-Fewer STEP pulses →  Less rotation
-
-DIR = Direction A →  Rotate one way
-DIR = Direction B →  Rotate the opposite way
+STEP  → Movement command
+DIR   → Rotation direction
+ENA   → Driver enable / disable
+GND   → Common ground
 ```
+
+The Arduino generates pulses on the STEP input.
+
+```text
+More STEP pulses  → More movement
+Fewer STEP pulses → Less movement
+
+DIR = HIGH → Direction A
+DIR = LOW  → Direction B
+```
+
+The exact behavior depends on the motor driver and the implementation used in the source code.
 
 ---
 
 ## 🧠 Stepper Motor Basics
 
-A stepper motor is an electric motor designed to divide its rotation into a number of small, controlled steps.
+A stepper motor divides its rotation into a number of discrete steps.
 
-For example, if a motor has a step angle of:
-
-```text
-1.8° per step
-```
-
-then one complete revolution requires:
+For example, a motor with a **1.8° step angle** requires:
 
 ```text
 360° ÷ 1.8° = 200 steps
 ```
 
-So, theoretically:
+Therefore:
 
 ```text
-200 steps  →  360°
-100 steps  →  180°
-50 steps   →  90°
-25 steps   →  45°
+200 steps → 360°
+100 steps → 180°
+50 steps  → 90°
+25 steps  → 45°
 ```
 
-The actual resolution can be increased when the motor driver supports **microstepping**.
+### 🔬 Microstepping
 
-For example:
+Some motor drivers support microstepping to provide smoother movement and higher positional resolution.
+
+Common configurations include:
 
 ```text
 Full Step
@@ -143,109 +167,103 @@ Half Step
 ...
 ```
 
-The available microstepping options depend on the specific motor driver.
+The available microstepping modes depend on the motor driver.
 
 ---
 
 ## 🔌 Hardware Requirements
 
-| Component        | Description                                               |
-| ---------------- | --------------------------------------------------------- |
-| 🔵 Arduino UNO   | Main microcontroller                                      |
-| ⚙️ Stepper Motor | Converts electrical signals into mechanical rotation      |
-| 🔌 Motor Driver  | Provides the required motor current and control interface |
-| 🔋 Power Supply  | Supplies power to the motor                               |
-| 🧵 Jumper Wires  | Used for electrical connections                           |
-| 🧪 Breadboard    | Optional for prototyping                                  |
+| Component            | Purpose                             |
+| -------------------- | ----------------------------------- |
+| 🔵 **Arduino UNO**   | Main microcontroller                |
+| ⚙️ **Stepper Motor** | Mechanical movement                 |
+| 🔌 **Motor Driver**  | Controls motor current and movement |
+| 🔋 **Power Supply**  | Provides motor power                |
+| 🧵 **Jumper Wires**  | Electrical connections              |
+| 🧪 **Breadboard**    | Optional prototyping                |
 
-> **Important:** The exact motor driver and power supply must match the specifications of your stepper motor.
+> ⚠️ The motor driver and power supply must be selected according to the specifications of the stepper motor.
 
 ---
 
 ## 🔧 Basic Wiring
 
-For a common STEP/DIR motor driver, the connection concept is:
+A typical STEP/DIR configuration looks like this:
 
 ```text
-Arduino UNO              Motor Driver
-───────────              ────────────
+        Arduino UNO                  Motor Driver
+        ───────────                  ────────────
 
-Digital Pin  ──────────► STEP
-Digital Pin  ──────────► DIR
-Digital Pin  ──────────► ENABLE
-GND          ──────────► GND
+        Digital Pin  ─────────────► STEP
+        Digital Pin  ─────────────► DIR
+        Digital Pin  ─────────────► ENA
+        GND         ─────────────► GND
 
-                         │
-                         │
-                         ▼
-                    Stepper Motor
+                                      │
+                                      │
+                                      ▼
+                                Stepper Motor
+
+                                      ▲
+                                      │
+                               External Power
 ```
 
-The exact Arduino pins depend on the implementation used in the source code.
+> ℹ️ The exact Arduino pins depend on the source code and hardware implementation.
 
-Always check the motor driver's documentation before connecting the hardware.
+Always check the motor driver's documentation before connecting the circuit.
 
 ---
 
 ## 🚀 Getting Started
 
-### 1. Clone the repository
+### 1️⃣ Clone the Repository
 
 ```bash
 git clone https://github.com/ho3-win/setpper-motor.git
 ```
 
-### 2. Open the project
+```bash
+cd setpper-motor
+```
 
-Open the Arduino source files located in:
+### 2️⃣ Open the Arduino Project
+
+Open the source files located in:
 
 ```text
 UNO/
 ```
 
-using the **Arduino IDE**.
+using **Arduino IDE**.
 
-### 3. Connect Arduino UNO
+### 3️⃣ Connect Arduino UNO
 
-Connect the Arduino UNO to your computer using a USB cable.
+Connect your Arduino UNO to your computer using a USB cable.
 
-### 4. Select the board
+### 4️⃣ Select the Board
 
-In Arduino IDE:
-
-```text
-Tools
- → Board
- → Arduino UNO
-```
-
-### 5. Select the correct port
+From Arduino IDE:
 
 ```text
 Tools
- → Port
- → Arduino UNO
+ └── Board
+      └── Arduino UNO
 ```
 
-### 6. Upload the program
+### 5️⃣ Select the Port
 
-Press the **Upload** button in Arduino IDE.
+```text
+Tools
+ └── Port
+      └── Arduino UNO
+```
 
-After the upload is completed, connect the motor driver and power supply according to the hardware specifications.
+### 6️⃣ Upload
 
----
+Click **Upload** in Arduino IDE.
 
-## ✨ Features
-
-* ⚙️ Stepper Motor Control
-* 🔄 Direction Control
-* 🎯 Step-based Movement
-* 📐 Controlled Rotation
-* 🔌 Arduino UNO Interface
-* 🧠 Simple Embedded-System Architecture
-* 🛠️ Easy to modify and extend
-* 🎥 Project demonstration included
-* 📱 Additional Telegram panel files included
+After uploading the program, connect the motor driver, motor and external power supply according to their specifications.
 
 ---
 
@@ -255,13 +273,13 @@ After the upload is completed, connect the motor driver and power supply accordi
 setpper-motor/
 │
 ├── 📁 STP-MOTOR/
-│   └── Stepper Motor related files
+│   └── Stepper motor related files
 │
 ├── 📁 UNO/
 │   └── Arduino UNO source code
 │
 ├── 📁 Panel - telegram/
-│   └── Telegram panel files
+│   ├── Telegram panel files
 │   └── robot_banner.jpg
 │
 ├── 🎥 اجرا.mp4
@@ -271,177 +289,274 @@ setpper-motor/
 
 ---
 
-## 🧩 Applications
+## 📱 Telegram Panel
 
-The concepts demonstrated by this project can be used as a starting point for larger systems such as:
+The repository also contains a separate directory for the Telegram-related panel:
+
+```text
+Panel - telegram/
+```
+
+This directory contains the additional files used for the Telegram part of the project.
+
+The project banner is also located inside this directory:
+
+```text
+Panel - telegram/robot_banner.jpg
+```
+
+---
+
+## 🤖 Possible Applications
+
+The concepts used in this project can be applied to many real-world systems.
 
 ### 🤖 Robotics
 
-Precise control of wheels, robotic arms, linear actuators, and other mechanisms.
+Stepper motors can be used for:
 
-### 🏭 Automation
+* Robotic arms
+* Wheels
+* Linear actuators
+* Rotating platforms
+* Positioning mechanisms
 
-Controlling mechanical positioning systems in automated machines.
+### 🏭 Industrial Automation
 
-### 🖨️ 3D Printing
+Stepper motors are widely used for controlled mechanical positioning in automated systems.
 
-Stepper motors are widely used for controlling X, Y, Z, and extrusion mechanisms.
+### 🖨️ 3D Printers
 
-### ⚙️ CNC
+Stepper motors are commonly used to control:
 
-Stepper motors can be used to control machine axes and provide controlled movement.
+```text
+X Axis
+Y Axis
+Z Axis
+Extruder
+```
+
+### ⚙️ CNC Machines
+
+Stepper motors can control machine axes and provide repeatable movement.
 
 ### 📷 Camera Systems
 
-Stepper motors can be used for controlled camera movement, focusing mechanisms, and rotating platforms.
+They can also be used for:
+
+* Camera positioning
+* Pan/tilt mechanisms
+* Focus mechanisms
+* Rotating platforms
 
 ---
 
 ## 🔮 Future Improvements
 
-The project can be extended with additional features such as:
+This project can be extended with many additional features:
 
 * 🎛️ Variable speed control
-* 🎚️ Potentiometer-based control
+* 🎚️ Potentiometer control
 * 🎮 Joystick control
 * 📱 Bluetooth control
 * 📡 Wireless control
-* 🖥️ LCD/OLED display
+* 🖥️ LCD / OLED display
 * 🎯 Position tracking
 * 🛑 Emergency stop
 * 📈 Acceleration and deceleration
 * 🔄 Automatic direction control
 * 🌐 Web-based control
-* 🤖 Integration with a larger robotic system
+* 🤖 Robotic system integration
 
-A possible future architecture could look like:
+A possible future architecture:
 
 ```text
-                 Arduino / Controller
-                         │
-        ┌────────────────┼────────────────┐
-        │                │                │
-        ▼                ▼                ▼
-     Joystick         Display         Wireless
-        │                │                │
-        └────────────────┼────────────────┘
-                         │
-                         ▼
-                   Motor Driver
-                         │
-                         ▼
-                   Stepper Motor
+                    Controller
+                        │
+          ┌─────────────┼─────────────┐
+          │             │             │
+          ▼             ▼             ▼
+      🎮 Joystick   🖥️ Display    📡 Wireless
+          │             │             │
+          └─────────────┼─────────────┘
+                        │
+                        ▼
+                 ┌──────────────┐
+                 │ Motor Driver │
+                 └──────┬───────┘
+                        │
+                        ▼
+                 ⚙️ Stepper Motor
 ```
 
 ---
 
-## ⚠️ Safety Notes
+## ⚠️ Safety
 
-Please follow these guidelines when working with the hardware:
+Please follow these safety guidelines when working with the hardware:
 
-* ⚠️ Never connect a stepper motor directly to Arduino GPIO pins.
-* ⚠️ Use an appropriate motor driver.
-* ⚠️ Use a suitable power supply for the motor and driver.
-* ⚠️ Check the motor driver's current settings.
-* ⚠️ Make sure the wiring is correct before applying power.
-* ⚠️ Disconnect power before changing the wiring.
-* ⚠️ Make sure the Arduino and driver have the required common ground connection.
+* ⚠️ **Never connect a stepper motor directly to Arduino GPIO pins.**
+* ⚠️ Always use a suitable motor driver.
+* ⚠️ Use an appropriate external power supply.
+* ⚠️ Configure the driver's current according to the motor specifications.
+* ⚠️ Check all wiring before applying power.
+* ⚠️ Disconnect power before modifying the wiring.
+* ⚠️ Make sure the required common ground connections are present.
+* ⚠️ Follow the manufacturer's documentation for the motor driver.
 
 ---
 
-## 📚 What You Can Learn From This Project
+## 📚 What You Can Learn
 
-This project demonstrates several important concepts in electronics and programming:
+This project provides practical experience with:
 
 ```text
 Arduino Programming
-       ↓
-Digital Outputs
-       ↓
-Control Pulses
-       ↓
-Motor Driver
-       ↓
-Stepper Motor
-       ↓
-Controlled Mechanical Movement
+        │
+        ▼
+      C / C++
+        │
+        ▼
+   Digital Signals
+        │
+        ▼
+   Control Pulses
+        │
+        ▼
+    Motor Driver
+        │
+        ▼
+   Stepper Motor
+        │
+        ▼
+  Motion Control
+        │
+        ▼
+ Robotics & Automation
 ```
 
-It is therefore a useful practical project for learning:
+### Main Topics
 
 * Embedded Systems
 * Arduino Programming
 * C/C++
 * Digital Electronics
 * Motor Control
-* Hardware/Software Interaction
-* Automation
+* Hardware / Software Interaction
 * Robotics
+* Automation
+* Motion Control
+
+---
+
+## 👨‍💻 Author
+
+<p align="center">
+
+<strong>ho3-win</strong>
+
+<br><br>
+
+<a href="https://github.com/ho3-win">
+  <img src="https://img.shields.io/badge/GitHub-ho3--win-black?style=for-the-badge&logo=github">
+</a>
+
+</p>
+
+⭐ If you find this project useful, consider giving the repository a **Star**.
 
 ---
 
 # 🇮🇷 فارسی
 
+<a name="-فارسی"></a>
+
 ## 📌 درباره پروژه
 
-این پروژه یک سیستم **کنترل موتور پله‌ای با استفاده از Arduino UNO** است که برای یادگیری و پیاده‌سازی کنترل حرکت موتورهای Stepper طراحی شده است.
+**Stepper Motor Control System** یک پروژه مبتنی بر **Arduino UNO** برای کنترل و حرکت دقیق موتور پله‌ای است.
 
-برخلاف موتورهای DC معمولی، موتور پله‌ای به صورت مرحله‌ای حرکت می‌کند. با کنترل تعداد پالس‌ها، زمان‌بندی آن‌ها و جهت سیگنال، می‌توان حرکت و جهت چرخش موتور را کنترل کرد.
+در این پروژه آردوینو به عنوان کنترل‌کننده اصلی عمل کرده و سیگنال‌های کنترلی را برای **Motor Driver** ارسال می‌کند. درایور نیز جریان موردنیاز موتور را تأمین کرده و حرکت آن را کنترل می‌کند.
 
-این پروژه یک نمونه عملی برای آشنایی با مفاهیم زیر است:
+این پروژه یک نمونه عملی برای یادگیری مفاهیم زیر است:
 
-* 🤖 رباتیک
-* ⚙️ کنترل موتور
-* 🔌 الکترونیک
-* 💻 برنامه‌نویسی Arduino
+* ⚙️ کنترل موتور پله‌ای
+* 🔄 کنترل جهت چرخش
+* 🎯 کنترل حرکت بر اساس Step
+* 📐 کنترل میزان چرخش
+* 🔌 کار با Motor Driver
+* 💻 برنامه‌نویسی Arduino و C++
 * 🧠 سیستم‌های Embedded
-* 🏭 اتوماسیون صنعتی
-* 🎯 کنترل حرکت
+* 🤖 رباتیک
+* 🏭 اتوماسیون
+
+---
+
+## ✨ امکانات
+
+| قابلیت                 | توضیح                         |
+| ---------------------- | ----------------------------- |
+| ⚙️ کنترل Stepper Motor | کنترل حرکت موتور              |
+| 🔄 کنترل جهت           | تغییر جهت چرخش                |
+| 🎯 حرکت بر اساس Step   | تعیین تعداد مراحل حرکت        |
+| 📐 کنترل چرخش          | کنترل تقریبی زاویه حرکت       |
+| 🔌 Arduino UNO         | کنترل‌کننده اصلی              |
+| 🧠 معماری Embedded     | ارتباط نرم‌افزار و سخت‌افزار  |
+| 🛠️ قابل توسعه         | امکان اضافه کردن امکانات جدید |
+| 🎥 ویدئوی Demo         | نمایش اجرای پروژه             |
+| 📱 Telegram Panel      | دارای فایل‌های بخش تلگرام     |
 
 ---
 
 ## ⚙️ نحوه عملکرد
 
-در این پروژه **Arduino UNO** نقش کنترل‌کننده اصلی را دارد.
-
-آردوینو سیگنال‌های کنترلی را تولید کرده و آن‌ها را به درایور موتور ارسال می‌کند. درایور نیز جریان موردنیاز موتور را تأمین کرده و باعث حرکت موتور پله‌ای می‌شود.
-
-ساختار کلی:
+ساختار کلی پروژه به صورت زیر است:
 
 ```text
-Arduino UNO
-     │
-     │ سیگنال کنترلی
-     ▼
-Motor Driver
-     │
-     │ توان موتور
-     ▼
-Stepper Motor
-     │
-     ▼
-حرکت و چرخش
+                 ┌──────────────────┐
+                 │    Arduino UNO   │
+                 │   کنترل‌کننده    │
+                 └────────┬─────────┘
+                          │
+                     سیگنال کنترل
+                          │
+                          ▼
+                 ┌──────────────────┐
+                 │   Motor Driver   │
+                 │    درایور موتور  │
+                 └────────┬─────────┘
+                          │
+                       توان موتور
+                          │
+                          ▼
+                 ┌──────────────────┐
+                 │  Stepper Motor   │
+                 │   موتور پله‌ای   │
+                 └────────┬─────────┘
+                          │
+                          ▼
+                       چرخش موتور
 ```
 
-در سیستم‌های معمول STEP/DIR:
+در یک سیستم معمول **STEP / DIR**:
 
 ```text
-STEP  → فرمان حرکت موتور
-DIR   → تعیین جهت چرخش
-ENA   → فعال/غیرفعال کردن درایور
-GND   → زمین مشترک
+STEP → فرمان حرکت
+DIR  → تعیین جهت
+ENA  → فعال / غیرفعال کردن درایور
+GND  → زمین مشترک
 ```
 
-هر پالس STEP باعث حرکت موتور به اندازه یک Step یا Microstep می‌شود.
-
-در نتیجه:
+آردوینو با تولید پالس‌های STEP باعث حرکت موتور می‌شود.
 
 ```text
-پالس بیشتر  → چرخش بیشتر
-پالس کمتر  → چرخش کمتر
+پالس بیشتر  → حرکت بیشتر
+پالس کمتر   → حرکت کمتر
 
-تغییر DIR  → تغییر جهت چرخش
+DIR = HIGH → جهت اول
+DIR = LOW  → جهت دوم
 ```
+
+رفتار دقیق این پایه‌ها به نوع درایور و کد استفاده‌شده بستگی دارد.
 
 ---
 
@@ -455,15 +570,13 @@ GND   → زمین مشترک
 1.8°
 ```
 
-باشد، برای یک دور کامل به:
+باشد:
 
 ```text
-360 ÷ 1.8 = 200 Step
+360° ÷ 1.8° = 200 Step
 ```
 
-نیاز داریم.
-
-بنابراین به صورت تئوری:
+بنابراین:
 
 ```text
 200 Step → 360°
@@ -472,152 +585,336 @@ GND   → زمین مشترک
 25 Step  → 45°
 ```
 
-البته در صورت پشتیبانی درایور از **Microstepping** می‌توان حرکت نرم‌تر و با رزولوشن بالاتر ایجاد کرد.
+### 🔬 Microstepping
+
+برخی Motor Driverها از Microstepping پشتیبانی می‌کنند که باعث حرکت نرم‌تر و افزایش رزولوشن حرکتی می‌شود.
+
+برای مثال:
+
+```text
+Full Step
+Half Step
+1/4 Step
+1/8 Step
+1/16 Step
+...
+```
+
+میزان Microstepping قابل استفاده به مدل Motor Driver بستگی دارد.
 
 ---
 
 ## 🔌 قطعات موردنیاز
 
-| قطعه             | کاربرد                   |
-| ---------------- | ------------------------ |
-| 🔵 Arduino UNO   | کنترل اصلی پروژه         |
-| ⚙️ Stepper Motor | ایجاد حرکت مکانیکی       |
-| 🔌 Motor Driver  | راه‌اندازی و کنترل موتور |
-| 🔋 Power Supply  | تأمین توان موتور         |
-| 🧵 Jumper Wire   | اتصال قطعات              |
-| 🧪 Breadboard    | نمونه‌سازی، در صورت نیاز |
+| قطعه                 | کاربرد                   |
+| -------------------- | ------------------------ |
+| 🔵 **Arduino UNO**   | کنترل اصلی پروژه         |
+| ⚙️ **Stepper Motor** | ایجاد حرکت مکانیکی       |
+| 🔌 **Motor Driver**  | کنترل جریان و حرکت موتور |
+| 🔋 **Power Supply**  | تأمین توان موتور         |
+| 🧵 **Jumper Wire**   | اتصال قطعات              |
+| 🧪 **Breadboard**    | نمونه‌سازی در صورت نیاز  |
+
+> ⚠️ درایور و منبع تغذیه باید متناسب با مشخصات موتور پله‌ای انتخاب شوند.
 
 ---
 
-## 🎯 ویژگی‌های پروژه
+## 🔧 سیم‌کشی پایه
 
-* ⚙️ کنترل موتور پله‌ای
-* 🔄 کنترل جهت چرخش
-* 🎯 کنترل حرکت بر اساس Step
-* 📐 امکان کنترل میزان چرخش
-* 🔌 استفاده از Arduino UNO
-* 🧠 معماری ساده و قابل توسعه
-* 🛠️ مناسب برای پروژه‌های آموزشی و رباتیک
-* 🎥 دارای ویدئوی اجرای پروژه
-* 📱 دارای فایل‌های مربوط به پنل Telegram
+در یک سیستم معمول STEP/DIR:
+
+```text
+        Arduino UNO                  Motor Driver
+        ───────────                  ────────────
+
+        Digital Pin  ─────────────► STEP
+        Digital Pin  ─────────────► DIR
+        Digital Pin  ─────────────► ENA
+        GND         ─────────────► GND
+
+                                      │
+                                      ▼
+                                Stepper Motor
+
+                                      ▲
+                                      │
+                               منبع تغذیه خارجی
+```
+
+> ℹ️ پایه‌های دقیق Arduino به کد و سخت‌افزار استفاده‌شده در پروژه بستگی دارند.
+
+قبل از اتصال، حتماً مستندات Motor Driver را بررسی کنید.
 
 ---
 
-## 🚀 نحوه اجرا
+## 🚀 راه‌اندازی پروژه
 
-ابتدا Repository را دریافت کنید:
+### 1️⃣ دریافت Repository
 
 ```bash
 git clone https://github.com/ho3-win/setpper-motor.git
 ```
 
-سپس فایل‌های Arduino موجود در پوشه:
+سپس:
+
+```bash
+cd setpper-motor
+```
+
+### 2️⃣ باز کردن پروژه
+
+فایل‌های مربوط به Arduino در مسیر زیر قرار دارند:
 
 ```text
 UNO/
 ```
 
-را با **Arduino IDE** باز کنید.
+این فایل‌ها را با **Arduino IDE** باز کنید.
 
-Arduino UNO را به سیستم متصل کرده و از بخش:
+### 3️⃣ اتصال Arduino UNO
+
+برد Arduino UNO را با کابل USB به کامپیوتر متصل کنید.
+
+### 4️⃣ انتخاب Board
+
+در Arduino IDE:
 
 ```text
-Tools → Board → Arduino UNO
+Tools
+ └── Board
+      └── Arduino UNO
 ```
 
-برد صحیح را انتخاب کنید.
+### 5️⃣ انتخاب Port
 
-سپس Port مربوط به Arduino را انتخاب کرده و برنامه را روی برد Upload کنید.
+```text
+Tools
+ └── Port
+      └── Arduino UNO
+```
 
-پس از آپلود، موتور و درایور را مطابق مشخصات سخت‌افزار متصل کرده و پروژه را اجرا کنید.
+### 6️⃣ Upload
+
+برنامه را روی Arduino آپلود کنید.
+
+پس از اتمام Upload، موتور، درایور و منبع تغذیه را مطابق مشخصات سخت‌افزار متصل کنید.
 
 ---
 
-## 📱 Panel - Telegram
+## 📂 ساختار پروژه
 
-در پروژه یک پوشه با نام:
+```text
+setpper-motor/
+│
+├── 📁 STP-MOTOR/
+│   └── فایل‌های مربوط به Stepper Motor
+│
+├── 📁 UNO/
+│   └── کدهای Arduino UNO
+│
+├── 📁 Panel - telegram/
+│   ├── فایل‌های پنل Telegram
+│   └── robot_banner.jpg
+│
+├── 🎥 اجرا.mp4
+│
+└── 📄 README.md
+```
+
+---
+
+## 📱 پنل Telegram
+
+در Repository یک پوشه با نام:
 
 ```text
 Panel - telegram/
 ```
 
-نیز قرار دارد که فایل‌های مربوط به بخش Telegram پروژه در آن قرار گرفته‌اند.
+وجود دارد که فایل‌های مربوط به بخش Telegram پروژه در آن قرار گرفته‌اند.
 
-تصویر معرفی این بخش در README استفاده شده و با کلیک روی آن می‌توانید مستقیماً **ویدئوی اجرای پروژه** را مشاهده کنید.
+تصویر معرفی این بخش نیز در همین پوشه قرار دارد:
+
+```text
+Panel - telegram/robot_banner.jpg
+```
+
+---
+
+## 🤖 کاربردهای پروژه
+
+مفاهیم این پروژه را می‌توان در پروژه‌های مختلف استفاده کرد.
+
+### 🤖 رباتیک
+
+* بازوی رباتیک
+* چرخ‌ها
+* Linear Actuator
+* پلتفرم‌های چرخان
+* سیستم‌های Positioning
+
+### 🏭 اتوماسیون صنعتی
+
+موتورهای پله‌ای برای کنترل دقیق موقعیت در بسیاری از سیستم‌های مکانیکی استفاده می‌شوند.
+
+### 🖨️ پرینتر سه‌بعدی
+
+در پرینترهای سه‌بعدی معمولاً موتورهای Stepper برای کنترل موارد زیر استفاده می‌شوند:
+
+```text
+X Axis
+Y Axis
+Z Axis
+Extruder
+```
+
+### ⚙️ CNC
+
+Stepper Motorها می‌توانند برای کنترل محورهای دستگاه‌های CNC استفاده شوند.
+
+### 📷 سیستم‌های دوربین
+
+برای مواردی مانند:
+
+* حرکت دوربین
+* Pan / Tilt
+* سیستم Focus
+* پلتفرم چرخان
+
+نیز قابل استفاده هستند.
 
 ---
 
 ## 🔮 ایده‌های توسعه
 
-این پروژه قابلیت توسعه به یک سیستم کامل‌تر را دارد. برای مثال می‌توان موارد زیر را اضافه کرد:
+پروژه را می‌توان با امکانات زیر توسعه داد:
 
 * 🎛️ کنترل سرعت
 * 🎚️ کنترل با Potentiometer
 * 🎮 کنترل با Joystick
 * 📱 کنترل با Bluetooth
 * 📡 کنترل بی‌سیم
-* 🖥️ نمایش اطلاعات روی LCD/OLED
-* 🎯 تعیین موقعیت دقیق
-* 🛑 کلید توقف اضطراری
-* 📈 شتاب‌گیری و کاهش سرعت
-* 🌐 کنترل از طریق Web
-* 🤖 استفاده در پروژه‌های رباتیک
+* 🖥️ نمایش اطلاعات روی LCD / OLED
+* 🎯 Position Tracking
+* 🛑 Emergency Stop
+* 📈 Acceleration / Deceleration
+* 🔄 تغییر جهت خودکار
+* 🌐 کنترل تحت وب
+* 🤖 اتصال به سیستم‌های رباتیک
 
----
-
-## ⚠️ نکات مهم
-
-**موتور پله‌ای را مستقیماً به پایه‌های Arduino متصل نکنید.**
-
-برای راه‌اندازی موتور باید از یک **Motor Driver مناسب** استفاده شود.
-
-همچنین:
-
-* منبع تغذیه باید با موتور و درایور سازگار باشد.
-* جریان درایور باید متناسب با موتور تنظیم شود.
-* قبل از روشن کردن سیستم، سیم‌کشی را بررسی کنید.
-* هنگام تغییر سیم‌کشی، برق را قطع کنید.
-* اتصال GND را مطابق مدار و درایور انجام دهید.
-
----
-
-## 📚 مباحثی که این پروژه آموزش می‌دهد
-
-با بررسی و توسعه این پروژه می‌توانید با مفاهیم زیر آشنا شوید:
+معماری احتمالی نسخه پیشرفته:
 
 ```text
-Arduino
-   ↓
-C/C++
-   ↓
-Digital Signals
-   ↓
-Motor Driver
-   ↓
-Stepper Motor
-   ↓
-Motion Control
-   ↓
-Robotics & Automation
+                    Controller
+                        │
+          ┌─────────────┼─────────────┐
+          │             │             │
+          ▼             ▼             ▼
+      🎮 Joystick   🖥️ Display    📡 Wireless
+          │             │             │
+          └─────────────┼─────────────┘
+                        │
+                        ▼
+                 ┌──────────────┐
+                 │ Motor Driver │
+                 └──────┬───────┘
+                        │
+                        ▼
+                 ⚙️ Stepper Motor
 ```
 
 ---
 
-## 👨‍💻 Author
+## ⚠️ نکات ایمنی
 
-**ho3-win**
+هنگام کار با سخت‌افزار موارد زیر را رعایت کنید:
 
-🔗 GitHub:
-https://github.com/ho3-win
+* ⚠️ **موتور پله‌ای را مستقیماً به پایه‌های Arduino متصل نکنید.**
+* ⚠️ حتماً از Motor Driver مناسب استفاده کنید.
+* ⚠️ از منبع تغذیه مناسب استفاده کنید.
+* ⚠️ جریان Motor Driver را مطابق مشخصات موتور تنظیم کنید.
+* ⚠️ قبل از روشن کردن سیستم سیم‌کشی را بررسی کنید.
+* ⚠️ قبل از تغییر سیم‌ها برق را قطع کنید.
+* ⚠️ اتصال GND مشترک موردنیاز را رعایت کنید.
+* ⚠️ دستورالعمل سازنده Motor Driver را مطالعه کنید.
 
-⭐ اگر این پروژه برای شما مفید بود، خوشحال می‌شوم Repository را Star کنید.
+---
+
+## 📚 چیزهایی که از این پروژه یاد می‌گیرید
+
+این پروژه یک نمونه عملی برای یادگیری موارد زیر است:
+
+```text
+Arduino Programming
+        │
+        ▼
+      C / C++
+        │
+        ▼
+   Digital Signals
+        │
+        ▼
+   Control Pulses
+        │
+        ▼
+    Motor Driver
+        │
+        ▼
+   Stepper Motor
+        │
+        ▼
+  Motion Control
+        │
+        ▼
+ Robotics & Automation
+```
+
+### مباحث اصلی
+
+* سیستم‌های Embedded
+* برنامه‌نویسی Arduino
+* C / C++
+* الکترونیک دیجیتال
+* کنترل موتور
+* ارتباط سخت‌افزار و نرم‌افزار
+* رباتیک
+* اتوماسیون
+* کنترل حرکت
+
+---
+
+## 👨‍💻 سازنده
+
+<p align="center">
+
+<strong>ho3-win</strong>
+
+<br><br>
+
+<a href="https://github.com/ho3-win">
+  <img src="https://img.shields.io/badge/GitHub-ho3--win-black?style=for-the-badge&logo=github">
+</a>
+
+</p>
+
+⭐ اگر این پروژه برای شما مفید بود، خوشحال می‌شوم Repository را **Star ⭐** کنید.
 
 ---
 
 <p align="center">
 
-### ⚙️ Arduino • Stepper Motor • Robotics • Embedded Systems
+## ⚙️ Arduino • Stepper Motor • Robotics • Embedded Systems
 
-**Built for learning, experimenting and creating 🚀**
+### 🚀 Built for learning, experimenting and creating
 
+**ساخته شده برای یادگیری، آزمایش و خلق ایده‌های جدید**
+
+</p>
+
+---
+
+<p align="center">
+  <a href="#-english">🇬🇧 English</a>
+  &nbsp;&nbsp;•&nbsp;&nbsp;
+  <a href="#-فارسی">🇮🇷 فارسی</a>
 </p>
