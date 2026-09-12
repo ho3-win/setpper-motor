@@ -17,7 +17,7 @@
 ## 🎬 Project Demo | ویدئوی اجرای پروژه
 
 <p align="center">
-  <a href="./اجرا.mp4">
+  <a href="./demo.gif">
     <img src="./Panel%20-%20telegram/robot_banner.jpg" width="750" alt="Stepper Motor Project - Click to watch the demo">
   </a>
 </p>
